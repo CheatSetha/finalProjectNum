@@ -2,6 +2,7 @@ package kh.edu.numfit.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -10,23 +11,41 @@ import jakarta.persistence.Table;
 @Table(name="tblTeachSchedule")
 public class TeachScheduleModel {
 	@Id
+	@Column(nullable = false)
 	private int tSid;
+	@Column(nullable =true)
 	private int proId;
+	@Column(nullable = true)
 	private int subId;
+	@Column(nullable = true)
 	private String teacherCode;
+	@Column(nullable = true)
 	private String classNo;
+	@Column(nullable = true)
 	private Date startDate;
+	@Column(nullable = true)
 	private Date endDate;
+	@Column(nullable = true)
 	private String googleCode;
+	@Column(nullable = true)
 	private String googleMeet;
+	@Column(nullable = true)
 	private String teachingDay;
+	@Column(nullable = true)
 	private String teachingTime;
+	@Column(nullable = true)
 	private int teachingTimeNo;
+	@Column(nullable = true)
 	private int teachingDuration;
+	@Column(nullable = true)
 	private int totalStudentInList;
+	@Column(nullable = true)
 	private int totalStudentInGoogle;
+	@Column(nullable = true)
 	private int studentAdd;
+	@Column(nullable = true)
 	private int studentDrop;
+	
 	public TeachScheduleModel() {}
 	public TeachScheduleModel(int tSid, int proId, int subId, String teacherCode, String classNo, Date startDate,
 			Date endDate, String googleCode, String googleMeet, String teachingDay, String teachingTime,

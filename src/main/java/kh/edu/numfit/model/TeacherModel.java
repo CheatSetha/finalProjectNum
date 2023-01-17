@@ -1,7 +1,14 @@
 package kh.edu.numfit.model;
 
+import java.io.Serializable;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
@@ -9,25 +16,45 @@ import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name= "tblTeachers")
-public class TeacherModel {
+public class TeacherModel implements Serializable{
+	private static final long serialVersionUID = 1L;
 	@Id
+	@Column(nullable = false)
 	private String teacherCode;
+	@Column(nullable = true)
 	private String nameEn;
+	@Column(nullable = true)
 	private String nameKh;
+	@Column(nullable = true)
 	private String gender;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dob;
+	@Column(nullable = true)
 	private String nationality;
+	@Column(nullable = true)
 	private String country;
+	@Column(nullable = true)
 	private String phoneNumber;
+	@Column(nullable = true)
 	private String pob;
+	@Column(nullable = true)
 	private String emailNum;
+	@Column(nullable = true)
 	private String emailPersonal;
+	@Column(nullable = true)
 	private String currentAddress;
+	@Column(nullable = true)
 	private String currentPosition;
+	@Column(nullable = true)
 	private String currentOrganization;
+	@Column(nullable = true)
 	private String currentPositionEntryDate;
+	@Column(nullable = true)
 	private String pwd;
+	@Enumerated(EnumType.STRING)
+	private Role role;
+	
 	public TeacherModel() {}
 	public String getTeacherCode() {
 		return teacherCode;
@@ -125,6 +152,13 @@ public class TeacherModel {
 	}
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+	
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	@Override
 	public String toString() {

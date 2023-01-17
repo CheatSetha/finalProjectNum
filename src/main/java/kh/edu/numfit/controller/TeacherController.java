@@ -8,6 +8,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,14 +28,8 @@ import kh.edu.numfit.service.UserServiceImp;
 public class TeacherController {
 	@Autowired
 	private TeacherService teacherService;
-	private List<String> gender;
-
-	public TeacherController() {
-		gender = new ArrayList<>();
-		gender.add("Male");
-		gender.add("Female");
-	}
-	
+	@Autowired
+	private PasswordEncoder getPasswordEncoder =new BCryptPasswordEncoder();
 	
 	@GetMapping("/admin/teachers")
 	public String getTeachers(Model model) {
@@ -49,13 +45,25 @@ public class TeacherController {
 	@PostMapping("/admin/saveteacher")
 	public String saveUser(@ModelAttribute("NEW_TEACHER") TeacherModel teacher) {
 		System.out.println("new teacher is : "+teacher);
+		//teacherService.updateorSaveUser(teacher);
+		return "redirect:/admin/teachers";
+	}
+	@PostMapping("/admin/updateteacher")
+	public String updateUser(@ModelAttribute("EDIT_TEACHER") TeacherModel teacher){
+		System.out.println("updated user is "+teacher);
+		if(!teacher.getPwd().isEmpty()) {
+			System.out.println("updated password");
+			teacher.setPwd(getPasswordEncoder.encode(teacher.getPwd()));
+		}
 		teacherService.updateorSaveUser(teacher);
 		return "redirect:/admin/teachers";
 	}
+	
 	@GetMapping("/admin/editteacher/{id}")
 	public ModelAndView editUser(@PathVariable("id") String id) {
-		System.out.println("edit user by id "+id);
+		//System.out.println("edit user by id "+id);
 		TeacherModel editTeacher = teacherService.getTeacherById(id);
+		System.out.println("edit teacher: "+editTeacher);
 		ModelAndView mv = new ModelAndView("/teacher/editteacher");
 		mv.addObject("EDIT_TEACHER", editTeacher);
 		return mv;

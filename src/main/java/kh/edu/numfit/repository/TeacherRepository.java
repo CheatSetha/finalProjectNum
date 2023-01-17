@@ -12,4 +12,6 @@ import kh.edu.numfit.model.UserModel;
 public interface TeacherRepository extends JpaRepository<TeacherModel, String>{
 	@Query("SELECT t FROM TeacherModel t WHERE t.nameEn LIKE %?1% Or t.nameKh LIKE %?1%")
     public List<TeacherModel> searchByKeyword(String keyword);
+	//@Query("SELECT t FROM TeacherModel t WHERE t.phoneNumber = ?1")
+	public TeacherModel findByPhoneNumber(String phoneNumber);
 }

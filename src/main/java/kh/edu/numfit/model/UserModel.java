@@ -22,16 +22,27 @@ import lombok.NoArgsConstructor;
 public class UserModel {
 	@Id
 	private int userId;
+	@Column(nullable = true)
 	private String userName;
+	@Column(nullable = true)
 	private String pwd;
+	@Column(nullable = true)
 	private String userRole;
+	@Column(nullable = true)
 	private String details;
+	@Column(nullable = true)
 	private Date createDate;
+	@Column(nullable = true)
 	private String photo;
+	@Column(nullable = true)
 	private String firstName;
+	@Column(nullable = true)
 	private String lastName;
+	@Column(nullable = true)
 	private String tel;
+	@Column(nullable = true)
 	private String email;
+	@Column(nullable = true)
 	private String address;
 	
 	public UserModel() {

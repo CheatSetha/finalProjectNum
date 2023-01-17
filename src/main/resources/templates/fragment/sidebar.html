@@ -20,31 +20,31 @@
                     <span>Dashboard</span></a>
             </li>
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item active" sec:authorize="isAuthenticated()">
                 <a class="nav-link" th:href="@{/course}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Course List</span></a>
             </li>
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item active" sec:authorize="isAuthenticated()">
                 <a class="nav-link" th:href="@{/course}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Subject List</span></a>
             </li>
 			<!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/course}">
+            <li class="nav-item active" sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:href="@{/course}" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Faculty List</span></a>
             </li>
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" th:href="@{/schedulehome}">
+            <li class="nav-item active" sec:authorize="isAuthenticated()">
+                <a class="nav-link" th:href="@{/schedulehome}" >
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Schedule</span></a>
             </li>
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item active" sec:authorize="hasRole('ROLE_ADMIN')">
                 <a class="nav-link" th:href="@{/admin/teachers}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Teacher</span></a>

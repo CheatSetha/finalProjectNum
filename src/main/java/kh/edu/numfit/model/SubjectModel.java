@@ -1,5 +1,6 @@
 package kh.edu.numfit.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -8,15 +9,25 @@ import jakarta.persistence.Table;
 @Table(name = "tblSubject")
 public class SubjectModel {
 	@Id
+	@Column(nullable =false)
 	private int subId;
+	@Column(nullable = true)
 	private String subject;
+	@Column(nullable = true)
 	private String faculty;
+	@Column(nullable = true)
 	private String major;
+	@Column(nullable = true)
 	private String semester;
+	@Column(nullable = true)
 	private String year;
+	@Column(nullable = true)
 	private String credit;
+	@Column(nullable = true)
 	private int hours;
+	@Column(nullable = true)
 	private String degree;
+	@Column(nullable = true)
 	private String code;
 	public SubjectModel() {
 		

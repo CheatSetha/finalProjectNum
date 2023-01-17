@@ -2,6 +2,7 @@ package kh.edu.numfit.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -10,12 +11,19 @@ import jakarta.persistence.Table;
 @Table(name = "tblPromotion")
 public class PromotionModel {
 	@Id
+	@Column(nullable = false)
 	private int proId;
+	@Column(nullable = true)
 	private Date startDate;
+	@Column(nullable = true)
 	private Date endDate;
+	@Column(nullable = true)
 	private String promotion;
+	@Column(nullable = true)
 	private String groupNo;
+	@Column(nullable = true)
 	private String classNo;
+	@Column(nullable = true)
 	private String detail;
 	public PromotionModel() {}
 	public PromotionModel(int proId, Date startDate, Date endDate, String promotion, String groupNo, String classNo,
