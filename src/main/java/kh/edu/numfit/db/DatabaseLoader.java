@@ -1,5 +1,6 @@
 package kh.edu.numfit.db;
 
+import kh.edu.numfit.model.WorkerExperiencesModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -86,6 +87,14 @@ public class DatabaseLoader  {
 			t8.setPwd(new BCryptPasswordEncoder().encode("123"));
 			t8.setPhoneNumber("017307327");
 			t8.setRole(Role.USER);
+			TeacherModel t9 = new TeacherModel();
+			t8.setTeacherCode("fit009");
+			t8.setNameEn("Cheat Setha");
+			t8.setNameKh("ជាតិ សេដ្ឋា");
+			t8.setPwd(new BCryptPasswordEncoder().encode("123"));
+			t8.setPhoneNumber("069381935");
+			t8.setRole(Role.ADMIN);
+
 			
 //			teacherRepository.save(t1);
 //			teacherRepository.save(t2);
@@ -95,7 +104,8 @@ public class DatabaseLoader  {
 //			teacherRepository.save(t6);
 //			teacherRepository.save(t7);
 //			teacherRepository.save(t8);
-			//System.out.println("user is created!");
+
+//			System.out.println("user is created!");
 		};
 	}
 	

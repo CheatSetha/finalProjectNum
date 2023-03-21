@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>education</title>
+</head>
+<body>
+<h1>education</h1>
+<button><a >add new</a></button>
+<table>
+  <thead>
+  <tr>
+    <th>EID</th>
+    <th>From date</th>
+    <th>To date</th>
+    <th>university</th>
+    <th>degree</th>
+    <th>program</th>
+    <th>achievement</th>
+    <th>teacher code</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="e : ${education}">
+    <td th:text="${e.eduid}"></td>
+    <td th:text="${e.fromdate}"></td>
+    <td th:text="${e.todate}"></td>
+    <td th:text="${e.university}"></td>
+    <td th:text="${e.degree}"></td>
+    <td th:text="${e.program}"></td>
+    <td th:text="${e.achievement}"></td>
+    <td th:text="${e.teachercode}"></td>
+    <td>edit</td>
+    <td>delete</td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
